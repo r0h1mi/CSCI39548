@@ -1,1 +1,1 @@
-# CSCI39548
+# CSCI39548 Practical Web Development
