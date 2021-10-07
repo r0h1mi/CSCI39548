@@ -26,9 +26,18 @@ arr.myEach( isEven );
 
 
 // MAP //
-Array.prototype.myMap = function() {
-
+Array.prototype.myMap = function(callbackFn) {
+    let arrMap = [];
+    for (let i = 0; i < this.length; i++)
+    {
+        arrMap[i] = callbackFn(this[i]);
+    }
+    return arrMap;
 };
+
+// TEST MAP//
+console.log("Elements cubed:",arr.myMap(num => num * num * num));
+console.log("-----------\n");
 
 // FILTER //
 Array.prototype.myFilter = function() {
