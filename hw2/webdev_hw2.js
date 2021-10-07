@@ -11,7 +11,7 @@ Array.prototype.myEach = function(callbackFn) {
     }
 };
 
-/* 
+
 //TEST// 
 const arr=[1,2,3,4,5];
 
@@ -23,7 +23,7 @@ arr.forEach( (x) => console.log(x) );
 
 const isEven = (number) => console.log(number%2 === 0);
 arr.myEach( isEven ); 
-*/
+
 
 // MAP //
 Array.prototype.myMap = function() {
