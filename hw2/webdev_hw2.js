@@ -12,7 +12,7 @@ Array.prototype.myEach = function(callbackFn) {
 };
 
 
-//TEST// 
+// TEST EACH // 
 const arr=[1,2,3,4,5];
 
 console.log("myEach: ")
@@ -27,12 +27,12 @@ arr.myEach( isEven );
 
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
-    let arrMap = [];
+    let thisnew = [];
     for (let i = 0; i < this.length; i++)
     {
-        arrMap[i] = callbackFn(this[i]);
+        thisnew[i] = callbackFn(this[i]);
     }
-    return arrMap;
+    return thisnew;
 };
 
 // TEST MAP//
@@ -40,9 +40,21 @@ console.log("Elements cubed:",arr.myMap(num => num * num * num));
 console.log("-----------\n");
 
 // FILTER //
-Array.prototype.myFilter = function() {
-
+Array.prototype.myFilter = function(callbackFn) {
+    let thisnew = [];
+    for (let i = 0; i < this.length; i++)
+    {
+        if (callbackFn(this[i]))
+        {
+            thisnew.push(this[i]);
+        }
+        return thisnew;
+    }
 };
+
+// TEST FILTER // 
+console.log("All odd elements: ", arr.myFilter(num => num % 2 !== 0));
+console.log("-----------\n");
 
 // SOME //
 Array.prototype.mySome = function() {
