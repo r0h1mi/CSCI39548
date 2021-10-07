@@ -1,15 +1,29 @@
 //RC start here//
 // FOR EACH //
-Array.prototype.myEach = function() {
-    for (let i = 0; i = this.length; i++)
+Array.prototype.myEach = function(callbackFn) {
+    for (let i = 0; i < this.length; i++)
     {
         if (this[i] === undefined)
         {
             continue;
         }
-        callbackFn(this[i], i, this)
+        callbackFn(this[i], i, this);
     }
 };
+
+
+//TEST// 
+const arr=[1,2,3,4,5];
+
+console.log("myEach: ")
+arr.myEach((x) => console.log(x) );
+
+console.log("forEach: ")
+arr.forEach( (x) => console.log(x) );
+
+const isEven = (number) => console.log(number%2 === 0);
+arr.myEach( isEven ); 
+
 
 // MAP //
 Array.prototype.myMap = function() {
