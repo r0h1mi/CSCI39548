@@ -1,6 +1,14 @@
+//RC start here//
 // FOR EACH //
 Array.prototype.myEach = function() {
-
+    for (let i = 0; i = this.length; i++)
+    {
+        if (this[i] === undefined)
+        {
+            continue;
+        }
+        callbackFn(this[i], i, this)
+    }
 };
 
 // MAP //
@@ -27,7 +35,7 @@ Array.prototype.myEvery = function() {
 Array.prototype.myReduce = function() {
 
 };
-
+//rc end here//
 // INCLUDES //
 Array.prototype.myIncludes = function() {
 
