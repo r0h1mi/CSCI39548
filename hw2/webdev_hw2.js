@@ -149,9 +149,31 @@ console.log(array2.myReduce(reducer, 5));
 
 
 // INCLUDES //
-Array.prototype.myIncludes = function() {
-
+Array.prototype.myIncludes = function(obj) {
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] === obj) {
+            return true;
+        }
+    }
+    return false;
 };
+    //TEST INCLUDES FUNCTION:
+    const array1 = [1, 2, 3];
+
+    console.log(array1.myIncludes(2));
+    console.log(array1.includes(2));
+    // expected output: true
+
+    const pets = ['cat', 'dog', 'bat'];
+
+    console.log(pets.myIncludes('cat'));
+    console.log(pets.includes('cat'));
+    // expected output: true
+
+    console.log(pets.myIncludes('at'));
+    console.log(pets.includes('at'));
+    // expected output: false
+
 
 // INDEXOF //
 Array.prototype.myIndexOf = function(obj) {
