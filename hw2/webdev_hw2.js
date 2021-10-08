@@ -63,7 +63,7 @@ const result2 = words.myFilter(word => word.length > 6);
 
 console.log(result);
 console.log(result2);
-*/
+
 
 // expected output: Array ["exuberant", "destruction", "present"]
 
@@ -89,12 +89,29 @@ const even2 = (element) => element % 2 === 0;
 console.log(array.some(even));
 console.log(array.mySome(even2));
 // expected output: true
+*/
 
-/*
 // EVERY //
-Array.prototype.myEvery = function() {
-
+Array.prototype.myEvery = function(callbackFn) {
+    for (let i = 0; i < this.length; i++)
+    {
+        if (!(callbackFn(this[i],i,this)))
+        {
+            return false;
+        }
+    }
+    return true;
 }; 
+
+// TEST EVERY // 
+const isBelowThreshold = (currentValue) => currentValue < 40;
+
+const array1 = [1, 30, 39, 29, 10, 13];
+const array2 = [1, 30, 39, 29, 10, 13];
+console.log(array1.every(isBelowThreshold));
+console.log(array2.myEvery(isBelowThreshold));
+// expected output: true
+
 
 // REDUCE //
 Array.prototype.myReduce = function() {
@@ -188,4 +205,3 @@ Object.grabValues = function(obj) {
     console.log(Object.grabValues(object1));
     console.log(Object.values(object1));
 // expected output: Array ["somestring", 42, false]
-*/
