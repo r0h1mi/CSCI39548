@@ -105,9 +105,22 @@ Array.prototype.myLastIndexOf = function() {
 };
 
 // KEYS //
-Object.grabKeys = function() {
-
+Object.grabKeys = function(obj) {
+    var keys = [];
+    for (var key in obj) {
+        keys.push(key);
+    }
+    return keys;
 };
+//TEST GRAB KEYS FUNCTION:
+    const object1 = {
+        a: 'somestring',
+        b: 42,
+        c: false
+    };
+  console.log(Object.grabKeys(object1));
+  console.log(Object.keys(object1));
+  // expected output: Array ["a", "b", "c"]
 
 // VALUES //
 Object.grabValues = function(obj) {
