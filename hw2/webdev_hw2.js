@@ -1,6 +1,6 @@
 //RC start here//
 // FOR EACH //
-/*Array.prototype.myEach = function(callbackFn) {
+Array.prototype.myEach = function(callbackFn) {
     for (let i = 0; i < this.length; i++)
     {
         if (this[i] === undefined)
@@ -40,7 +40,7 @@ console.log("Elements cubed:",arr.myMap(num => num * num * num));
 console.log("-----------\n");
 */
 
-/*
+
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
     let thisnew = [];
@@ -89,7 +89,7 @@ const even2 = (element) => element % 2 === 0;
 console.log(array.some(even));
 console.log(array.mySome(even2));
 // expected output: true
-*/
+
 
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
@@ -114,9 +114,37 @@ console.log(array2.myEvery(isBelowThreshold));
 
 
 // REDUCE //
-Array.prototype.myReduce = function() {
-
+Array.prototype.myReduce = function(callbackFn, Values) {
+    for (let i = 0; i < this.length; i++)
+    {
+        if (Values === undefined)
+        {
+            Values = this[i];
+        }
+        else if (Values != undefined)
+        {
+            Values = callbackFn(Values, this[i]);
+        }
+    }
+    return Values;
 };
+
+//TEST REDUCE //
+
+const array1 = [1, 2, 3, 4];
+const reducer = (previousValue, currentValue) => previousValue + currentValue;
+const array2 = [1, 2, 3, 4];
+// 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer));
+console.log(array2.myReduce(reducer));
+// expected output: 10
+
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5));
+console.log(array2.myReduce(reducer, 5));
+// expected output: 15
+
+
 //rc end here//
 
 
@@ -205,3 +233,4 @@ Object.grabValues = function(obj) {
     console.log(Object.grabValues(object1));
     console.log(Object.values(object1));
 // expected output: Array ["somestring", 42, false]
+
