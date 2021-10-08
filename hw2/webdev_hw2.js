@@ -87,7 +87,7 @@ const even = (element) => element % 2 === 0;
 const even2 = (element) => element % 2 === 0;
 
 console.log(array.some(even));
-console.log(array.mySome(even));
+console.log(array.mySome(even2));
 // expected output: true
 
 /*
@@ -174,3 +174,4 @@ Object.grabValues = function(obj) {
     console.log(Object.grabValues(object1));
     console.log(Object.values(object1));
 // expected output: Array ["somestring", 42, false]
+*/
