@@ -87,7 +87,7 @@ const even = (element) => element % 2 === 0;
 const even2 = (element) => element % 2 === 0;
 
 console.log(array.some(even));
-console.log(array.mySome(even2));
+console.log(array.mySome(even));
 // expected output: true
 
 /*
