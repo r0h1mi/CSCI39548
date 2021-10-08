@@ -71,7 +71,7 @@ Array.prototype.myReduce = function() {
 };
 //rc end here//
 
-// MG starts here
+
 // INCLUDES //
 Array.prototype.myIncludes = function() {
 
@@ -110,16 +110,23 @@ Object.grabKeys = function() {
 };
 
 // VALUES //
-Object.grabValues = function() {
-
+Object.grabValues = function(obj) {
+    var vals = [];
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)){
+            vals.push(obj[key]);
+        }
+    }
+    return vals;
 };
 
 //Test grabValues
-const object1 = {
-    a: 'somestring',
-    b: 42,
-    c: false
-  };
-  
-  console.log(Object.values(object1));
+    const object1 = {
+        a: 'somestring',
+        b: 42,
+        c: false
+    };
+    
+    console.log(Object.grabValues(object1));
+    console.log(Object.values(object1));
 // expected output: Array ["somestring", 42, false]
