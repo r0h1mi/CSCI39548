@@ -38,7 +38,6 @@ Array.prototype.myMap = function(callbackFn) {
 // TEST MAP//
 console.log("Elements cubed:",arr.myMap(num => num * num * num));
 console.log("-----------\n");
-*/
 
 
 // FILTER //
@@ -89,6 +88,7 @@ const even2 = (element) => element % 2 === 0;
 console.log(array.some(even));
 console.log(array.mySome(even2));
 // expected output: true
+
 
 
 // EVERY //
@@ -154,9 +154,27 @@ Array.prototype.myIncludes = function() {
 };
 
 // INDEXOF //
-Array.prototype.myIndexOf = function() {
-
+Array.prototype.myIndexOf = function(obj) {
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] === obj) {
+            return i;
+        }
+    }
+    return -1;
 };
+    //TEST INDEXOF FUNCTION:
+    const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+    console.log(beasts.myIndexOf('bison'));
+    console.log(beasts.indexOf('bison'));
+    // expected output: 1
+
+    console.log(beasts.myIndexOf('ant'));
+    console.log(beasts.indexOf('ant'));
+    // expected output: 0
+
+    console.log(beasts.myIndexOf('giraffe'));
+    console.log(beasts.indexOf('giraffe'));
+    // expected output: -1
 
 // PUSH //
 Array.prototype.myPush = function(...args) {
@@ -232,5 +250,6 @@ Object.grabValues = function(obj) {
     
     console.log(Object.grabValues(object1));
     console.log(Object.values(object1));
+
 // expected output: Array ["somestring", 42, false]
 
