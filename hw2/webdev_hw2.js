@@ -1,6 +1,6 @@
 //RC start here//
 // FOR EACH //
-Array.prototype.myEach = function(callbackFn) {
+/*Array.prototype.myEach = function(callbackFn) {
     for (let i = 0; i < this.length; i++)
     {
         if (this[i] === undefined)
@@ -13,7 +13,7 @@ Array.prototype.myEach = function(callbackFn) {
 
 
 // TEST EACH // 
-const arr=[1,2,3,4,5];
+const arr=[1,2,3,4,5,6,7,8];
 
 console.log("myEach: ")
 arr.myEach((x) => console.log(x) );
@@ -38,7 +38,9 @@ Array.prototype.myMap = function(callbackFn) {
 // TEST MAP//
 console.log("Elements cubed:",arr.myMap(num => num * num * num));
 console.log("-----------\n");
+*/
 
+/*
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
     let thisnew = [];
@@ -48,23 +50,51 @@ Array.prototype.myFilter = function(callbackFn) {
         {
             thisnew.push(this[i]);
         }
-        return thisnew;
     }
+    return thisnew;
 };
+
 
 // TEST FILTER // 
-console.log("All odd elements: ", arr.myFilter(num => num % 2 !== 0));
-console.log("-----------\n");
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result = words.filter(word => word.length > 6);
+const result2 = words.myFilter(word => word.length > 6);
+
+console.log(result);
+console.log(result2);
+*/
+
+// expected output: Array ["exuberant", "destruction", "present"]
 
 // SOME //
-Array.prototype.mySome = function() {
-
+Array.prototype.mySome = function(callbackFn) {
+    for (let i = 0; i < this.length; i++)
+    {
+        if (callbackFn(this[i],i,this))
+        {
+            return true;
+        }
+    }
+    return false;
 };
 
+// TEST SOME //
+const array = [1, 2, 3, 4, 5];
+
+// checks whether an element is even
+const even = (element) => element % 2 === 0;
+const even2 = (element) => element % 2 === 0;
+
+console.log(array.some(even));
+console.log(array.mySome(even2));
+// expected output: true
+
+/*
 // EVERY //
 Array.prototype.myEvery = function() {
 
-};
+}; 
 
 // REDUCE //
 Array.prototype.myReduce = function() {
@@ -99,4 +129,4 @@ Object.grabKeys = function() {
 // VALUES //
 Object.grabValues = function() {
 
-};
+}; */
