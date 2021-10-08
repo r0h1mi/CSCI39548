@@ -59,6 +59,8 @@ Array.prototype.myReduce = function() {
 
 };
 //rc end here//
+
+// MG starts here
 // INCLUDES //
 Array.prototype.myIncludes = function() {
 
@@ -70,9 +72,21 @@ Array.prototype.myIndexOf = function() {
 };
 
 // PUSH //
-Array.prototype.myPush = function() {
-
+Array.prototype.myPush = function(...args) {
+    let arg_i = 0;
+    let length = this.length;
+    
+    for (let i = length; i < length + args.length; i++) {
+        this[i] = args[arg_i];
+        arg_i++;
+    }
+    return this.length;
 };
+//TEST PUSH:
+const arr = [1, 7];
+console.log(arr.myPush(10, 20));
+arr.push(100,200);
+console.log(arr); //should print [1,7,10,20,100,200]
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function() {
