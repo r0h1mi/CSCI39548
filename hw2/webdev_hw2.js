@@ -124,16 +124,30 @@ Array.prototype.myPush = function(...args) {
     }
     return this.length;
 };
-//TEST PUSH:
-const arr = [1, 7];
-console.log(arr.myPush(10, 20));
-arr.push(100,200);
-console.log(arr); //should print [1,7,10,20,100,200]
+    //TEST PUSH:
+    const arr = [1, 7];
+    console.log(arr.myPush(10, 20));
+    arr.push(100,200);
+    console.log(arr); //should print [1,7,10,20,100,200]
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
-
+Array.prototype.myLastIndexOf = function(obj) {
+    for (let i = this.length - 1; i >= 0; --i) {
+        if (this[i] === obj) {
+            return i;
+        }
+    }
+    return -1;
 };
+    //TEST LASTINDEX FUNCTION:
+    const animals = ['Dodo', 'Tiger', 'Penguin', 'Dodo'];
+
+    console.log(animals.myLastIndexOf('Dodo'));
+    // expected output: 3
+
+    console.log(animals.lastIndexOf('Tiger'));
+    // expected output: 1
+
 
 // KEYS //
 Object.grabKeys = function(obj) {
@@ -143,15 +157,15 @@ Object.grabKeys = function(obj) {
     }
     return keys;
 };
-//TEST GRAB KEYS FUNCTION:
-    const object1 = {
-        a: 'somestring',
-        b: 42,
-        c: false
-    };
-  console.log(Object.grabKeys(object1));
-  console.log(Object.keys(object1));
-  // expected output: Array ["a", "b", "c"]
+    //TEST GRAB KEYS FUNCTION:
+        const object1 = {
+            a: 'somestring',
+            b: 42,
+            c: false
+        };
+    console.log(Object.grabKeys(object1));
+    console.log(Object.keys(object1));
+    // expected output: Array ["a", "b", "c"]
 
 // VALUES //
 Object.grabValues = function(obj) {
