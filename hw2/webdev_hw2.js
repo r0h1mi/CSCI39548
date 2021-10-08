@@ -236,8 +236,8 @@ Array.prototype.myLastIndexOf = function(obj) {
 
 // KEYS //
 Object.grabKeys = function(obj) {
-    var keys = [];
-    for (var key in obj) {
+    let keys = [];
+    for (let key in obj) {
         keys.push(key);
     }
     return keys;
@@ -254,8 +254,8 @@ Object.grabKeys = function(obj) {
 
 // VALUES //
 Object.grabValues = function(obj) {
-    var vals = [];
-    for (var key in obj) {
+    let vals = [];
+    for (let key in obj) {
         if (obj.hasOwnProperty(key)){
             vals.push(obj[key]);
         }
@@ -264,14 +264,14 @@ Object.grabValues = function(obj) {
 };
 
 //Test grabValues
-    const object1 = {
+    const object = {
         a: 'somestring',
         b: 42,
         c: false
     };
     
-    console.log(Object.grabValues(object1));
-    console.log(Object.values(object1));
+    console.log(Object.grabValues(object));
+    console.log(Object.values(object));
 
 // expected output: Array ["somestring", 42, false]
 
