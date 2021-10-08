@@ -34,7 +34,6 @@ Array.prototype.myMap = function(callbackFn) {
     }
     return arrMap;
 };
-
 // TEST MAP//
 console.log("Elements cubed:",arr.myMap(num => num * num * num));
 console.log("-----------\n");
@@ -88,3 +87,13 @@ Object.grabKeys = function() {
 Object.grabValues = function() {
 
 };
+
+//Test grabValues
+const object1 = {
+    a: 'somestring',
+    b: 42,
+    c: false
+  };
+  
+  console.log(Object.values(object1));
+// expected output: Array ["somestring", 42, false]
