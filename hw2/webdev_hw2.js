@@ -12,7 +12,7 @@ Array.prototype.myEach = function(callbackFn) {
 };
 
 
-//TEST// 
+// TEST EACH // 
 const arr=[1,2,3,4,5];
 
 console.log("myEach: ")
@@ -27,21 +27,33 @@ arr.myEach( isEven );
 
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
-    let arrMap = [];
+    let thisnew = [];
     for (let i = 0; i < this.length; i++)
     {
-        arrMap[i] = callbackFn(this[i]);
+        thisnew[i] = callbackFn(this[i]);
     }
-    return arrMap;
+    return thisnew;
 };
 // TEST MAP//
 console.log("Elements cubed:",arr.myMap(num => num * num * num));
 console.log("-----------\n");
 
 // FILTER //
-Array.prototype.myFilter = function() {
-
+Array.prototype.myFilter = function(callbackFn) {
+    let thisnew = [];
+    for (let i = 0; i < this.length; i++)
+    {
+        if (callbackFn(this[i]))
+        {
+            thisnew.push(this[i]);
+        }
+        return thisnew;
+    }
 };
+
+// TEST FILTER // 
+console.log("All odd elements: ", arr.myFilter(num => num % 2 !== 0));
+console.log("-----------\n");
 
 // SOME //
 Array.prototype.mySome = function() {
@@ -59,7 +71,7 @@ Array.prototype.myReduce = function() {
 };
 //rc end here//
 
-// MG STARTS HERE //
+
 // INCLUDES //
 Array.prototype.myIncludes = function() {
 
@@ -71,9 +83,21 @@ Array.prototype.myIndexOf = function() {
 };
 
 // PUSH //
-Array.prototype.myPush = function() {
-
+Array.prototype.myPush = function(...args) {
+    let arg_i = 0;
+    let length = this.length;
+    
+    for (let i = length; i < length + args.length; i++) {
+        this[i] = args[arg_i];
+        arg_i++;
+    }
+    return this.length;
 };
+//TEST PUSH:
+const arr = [1, 7];
+console.log(arr.myPush(10, 20));
+arr.push(100,200);
+console.log(arr); //should print [1,7,10,20,100,200]
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function() {
