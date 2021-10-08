@@ -1,4 +1,5 @@
 //RC start here//
+
 // FOR EACH //
 Array.prototype.myEach = function(callbackFn) {
     for (let i = 0; i < this.length; i++)
@@ -12,7 +13,7 @@ Array.prototype.myEach = function(callbackFn) {
 };
 
 
-// TEST EACH // 
+/* TEST EACH  
 const arr=[1,2,3,4,5,6,7,8];
 
 console.log("myEach: ")
@@ -23,6 +24,7 @@ arr.forEach( (x) => console.log(x) );
 
 const isEven = (number) => console.log(number%2 === 0);
 arr.myEach( isEven ); 
+*/
 
 
 // MAP //
@@ -30,15 +32,15 @@ Array.prototype.myMap = function(callbackFn) {
     let thisnew = [];
     for (let i = 0; i < this.length; i++)
     {
-        thisnew[i] = callbackFn(this[i]);
+        thisnew[i] = callbackFn(this[i],i,this);
     }
     return thisnew;
 };
 
-// TEST MAP//
+/* TEST MAP
 console.log("Elements cubed:",arr.myMap(num => num * num * num));
 console.log("-----------\n");
-
+*/
 
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
@@ -54,7 +56,7 @@ Array.prototype.myFilter = function(callbackFn) {
 };
 
 
-// TEST FILTER // 
+/* TEST FILTER 
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 
 const result = words.filter(word => word.length > 6);
@@ -65,6 +67,7 @@ console.log(result2);
 
 
 // expected output: Array ["exuberant", "destruction", "present"]
+*/
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
@@ -78,7 +81,7 @@ Array.prototype.mySome = function(callbackFn) {
     return false;
 };
 
-// TEST SOME //
+/* TEST SOME 
 const array = [1, 2, 3, 4, 5];
 
 // checks whether an element is even
@@ -88,7 +91,7 @@ const even2 = (element) => element % 2 === 0;
 console.log(array.some(even));
 console.log(array.mySome(even2));
 // expected output: true
-
+*/
 
 
 // EVERY //
@@ -103,7 +106,7 @@ Array.prototype.myEvery = function(callbackFn) {
     return true;
 }; 
 
-// TEST EVERY // 
+/* TEST EVERY
 const isBelowThreshold = (currentValue) => currentValue < 40;
 
 const array1 = [1, 30, 39, 29, 10, 13];
@@ -111,7 +114,7 @@ const array2 = [1, 30, 39, 29, 10, 13];
 console.log(array1.every(isBelowThreshold));
 console.log(array2.myEvery(isBelowThreshold));
 // expected output: true
-
+*/
 
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn, Values) {
@@ -129,8 +132,7 @@ Array.prototype.myReduce = function(callbackFn, Values) {
     return Values;
 };
 
-//TEST REDUCE //
-
+/* TEST REDUCE 
 const array1 = [1, 2, 3, 4];
 const reducer = (previousValue, currentValue) => previousValue + currentValue;
 const array2 = [1, 2, 3, 4];
@@ -143,10 +145,9 @@ console.log(array2.myReduce(reducer));
 console.log(array1.reduce(reducer, 5));
 console.log(array2.myReduce(reducer, 5));
 // expected output: 15
+*/
 
-
-//rc end here//
-
+//RC ENDS HERE//
 
 // INCLUDES //
 Array.prototype.myIncludes = function(obj) {
@@ -274,4 +275,3 @@ Object.grabValues = function(obj) {
     console.log(Object.values(object));
 
 // expected output: Array ["somestring", 42, false]
-
